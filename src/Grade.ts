@@ -1,3 +1,6 @@
+/**
+ * The grade for a course. Ap = A+, Am = A-, and so on
+ */
 export enum Grade {
     Ap = 4.00,
     A = 4.00,
@@ -9,5 +12,5 @@ export enum Grade {
     C = 2.00,
     Cm = 1.67,
     D = 1.00,
-    F = 0.00
+    F = 0.00,
 }

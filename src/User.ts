@@ -1,34 +1,40 @@
 import { CompletedCourse } from "./CompletedCourse";
-import { Rule, CreditRule } from "./Rule";
+import { rules } from "./Rule";
 
-export enum Semester {
-    Fall2016 = 0
-}
+/**
+ * The year name of the user
+ */
 export enum Year {
     Freshman = "Freshman",
     Sophomore = "Sophomore",
     Junior = "Junior",
-    Senior = "Senior"
+    Senior = "Senior",
 }
 
+/**
+ * The user currently using the application
+ */
 export class User {
-    static rules: Rule[] = [new CreditRule()];
 
-    semestersRemaining: number;
-    year: Year;
-    creditYear: Year;
-    coursesTaken: CompletedCourse[];
+    public semestersRemaining: number;
+    public year: Year;
+    public creditYear: Year;
+    public coursesTaken: CompletedCourse[];
 
-    constructor(semestersRemaining: number, year: Year, creditYear: Year, coursesTaken: CompletedCourse[]){
+    constructor(semestersRemaining: number, year: Year, creditYear: Year, coursesTaken: CompletedCourse[]) {
         this.semestersRemaining = semestersRemaining;
         this.year = year;
         this.creditYear = creditYear;
         this.coursesTaken = coursesTaken;
     }
 
-    checkCanGraduate(): boolean {
-        for(let rule of User.rules){
-            if(!rule.checkRule(this)){
+    /**
+     * Checks if the user can graduate by evaluating their class record (courses taken & grades) against the list of
+     * rules specified in Rule.ts.
+     */
+    public checkCanGraduate(): boolean {
+        for (const rule of rules) {
+            if (!rule.checkRule(this)) {
                 return false;
             }
         }

@@ -1,5 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/**
+ * The grade for a course. Ap = A+, Am = A-, and so on
+ */
 var Grade;
 (function (Grade) {
     Grade[Grade["Ap"] = 4] = "Ap";

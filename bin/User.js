@@ -1,10 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var Rule_1 = require("./Rule");
-var Semester;
-(function (Semester) {
-    Semester[Semester["Fall2016"] = 0] = "Fall2016";
-})(Semester = exports.Semester || (exports.Semester = {}));
+/**
+ * The year name of the user
+ */
 var Year;
 (function (Year) {
     Year["Freshman"] = "Freshman";
@@ -12,6 +11,9 @@ var Year;
     Year["Junior"] = "Junior";
     Year["Senior"] = "Senior";
 })(Year = exports.Year || (exports.Year = {}));
+/**
+ * The user currently using the application
+ */
 var User = /** @class */ (function () {
     function User(semestersRemaining, year, creditYear, coursesTaken) {
         this.semestersRemaining = semestersRemaining;
@@ -19,16 +21,19 @@ var User = /** @class */ (function () {
         this.creditYear = creditYear;
         this.coursesTaken = coursesTaken;
     }
+    /**
+     * Checks if the user can graduate by evaluating their class record (courses taken & grades) against the list of
+     * rules specified in Rule.ts.
+     */
     User.prototype.checkCanGraduate = function () {
-        for (var _i = 0, _a = User.rules; _i < _a.length; _i++) {
-            var rule = _a[_i];
+        for (var _i = 0, rules_1 = Rule_1.rules; _i < rules_1.length; _i++) {
+            var rule = rules_1[_i];
             if (!rule.checkRule(this)) {
                 return false;
             }
         }
         return true;
     };
-    User.rules = [new Rule_1.CreditRule()];
     return User;
 }());
 exports.User = User;

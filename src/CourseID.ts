@@ -1,25 +1,31 @@
-export class CourseID{
-    department: string;
-    number: number;
+/**
+ * The identifying information of a course -- the department and number
+ */
+export class CourseID {
+    public readonly department: string;
+    public readonly courseNumber: number;
 
-    constructor(department: string, number: number){
+    constructor(department: string, courseNumber: number) {
         this.department = department;
-        this.number = number;
+        this.courseNumber = courseNumber;
     }
 
-    static fromCourseName(courseName: string): CourseID{
-        let parts : string[] = courseName.trim().split(" ");
-        let department : string = parts[0];
-        let number : number = Number(parts[1]);
-
-        return new CourseID(department, number);
+    public equals(other: CourseID): boolean {
+        return this.department === other.department && this.courseNumber === other.courseNumber;
     }
 
-    equals(other: CourseID): boolean{
-        return this.department == other.department && this.number == other.number;
+    public toString(): string {
+        return this.department + " " + this.courseNumber;
     }
 
-    toString(): string{
-        return this.department + " " + this.number;
+    /**
+     * Static method to parse a CourseID object from a course name (e.g. "CS 321")
+     */
+    public static fromCourseName(courseName: string): CourseID {
+        const parts: string[] = courseName.trim().split(" ");
+        const department: string = parts[0];
+        const courseNumber: number = Number(parts[1]);
+
+        return new CourseID(department, courseNumber);
     }
 }
