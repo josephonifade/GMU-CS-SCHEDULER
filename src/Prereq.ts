@@ -9,7 +9,7 @@ export namespace Prereq {
         toString(outer?: boolean): string; //Reminder to implement this for all implementations
     }
 
-    export const NONE : Prerequisite = {validatePrereq: (...coursesTaken: CompletedCourse[]) => {return true;}, toString: ()=>{return "None"}};
+    export const NONE : Prerequisite = {validatePrereq: (..._: CompletedCourse[] /*coursesTaken*/) => {return true;}, toString: ()=>{return "None"}};
 
     export class And implements Prerequisite{
         requirements: Prerequisite[];

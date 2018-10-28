@@ -5,9 +5,9 @@ var Grade_1 = require("./Grade");
 var Prereq;
 (function (Prereq) {
     Prereq.NONE = { validatePrereq: function () {
-            var coursesTaken = [];
-            for (var _i = 0; _i < arguments.length; _i++) {
-                coursesTaken[_i] = arguments[_i];
+            var _ = []; /*coursesTaken*/
+            for (var _i = 0 /*coursesTaken*/; _i < arguments.length /*coursesTaken*/; _i++ /*coursesTaken*/) {
+                _[_i] = arguments[_i]; /*coursesTaken*/
             }
             return true;
         }, toString: function () { return "None"; } };

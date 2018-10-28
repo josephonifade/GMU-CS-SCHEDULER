@@ -1,5 +1,5 @@
-import { User, Year } from "./User";
-import {Course, catalog, CS321} from "./Course"
+import { User} from "./User";
+import {catalog} from "./Course"
 
 export interface Rule {
     checkRule(user: User): boolean;

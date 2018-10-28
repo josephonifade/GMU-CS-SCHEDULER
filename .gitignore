@@ -4,3 +4,5 @@
 /node_modules/*
 /src/test.ts
 /bin/test.js
+/ignore/
+/ignore/*
