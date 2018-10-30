@@ -29,8 +29,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm pre-commit",
-      "pre-push": "npm pre-commit"
+      "pre-commit": "npm run pre-commit",
+      "pre-push": "npm run pre-commit"
     }
   }
 }
