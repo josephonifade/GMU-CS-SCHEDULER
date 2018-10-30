@@ -24,10 +24,7 @@ class CreditRule implements Rule {
             if (course == null) {
                 continue;
             }
-            if (
-                course.checkPrerequisites() &&
-                course.checkPassed(courseTaken.grade)
-            ) {
+            if (course.checkPrerequisites() && course.checkPassed(courseTaken.grade)) {
                 creditTotal += course.credits;
             }
         }

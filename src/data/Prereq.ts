@@ -75,23 +75,16 @@ export namespace Prereq {
                 if (
                     previousRequirement instanceof Course &&
                     requirement instanceof Course &&
-                    previousRequirement.courseID.department ===
-                        requirement.courseID.department
+                    previousRequirement.courseID.department === requirement.courseID.department
                 ) {
                     output += requirement.courseID.courseNumber;
                 } else {
                     output += requirement.toString(false);
                 }
 
-                if (
-                    i <
-                    this.requirements.length - TO_STRING_DISTANCE_FOR_COMMA
-                ) {
+                if (i < this.requirements.length - TO_STRING_DISTANCE_FOR_COMMA) {
                     output += ", ";
-                } else if (
-                    i ===
-                    this.requirements.length - TO_STRING_DISTANCE_FOR_COMMA
-                ) {
+                } else if (i === this.requirements.length - TO_STRING_DISTANCE_FOR_COMMA) {
                     output += " and ";
                 }
                 previousRequirement = requirement;
@@ -132,23 +125,16 @@ export namespace Prereq {
                 if (
                     previousRequirement instanceof Course &&
                     requirement instanceof Course &&
-                    previousRequirement.courseID.department ===
-                        requirement.courseID.department
+                    previousRequirement.courseID.department === requirement.courseID.department
                 ) {
                     output += requirement.courseID.courseNumber;
                 } else {
                     output += requirement.toString(false);
                 }
 
-                if (
-                    i <
-                    this.requirements.length - TO_STRING_DISTANCE_FOR_COMMA
-                ) {
+                if (i < this.requirements.length - TO_STRING_DISTANCE_FOR_COMMA) {
                     output += ", ";
-                } else if (
-                    i ===
-                    this.requirements.length - TO_STRING_DISTANCE_FOR_COMMA
-                ) {
+                } else if (i === this.requirements.length - TO_STRING_DISTANCE_FOR_COMMA) {
                     output += " or ";
                 }
                 previousRequirement = requirement;
@@ -172,10 +158,7 @@ export namespace Prereq {
 
         public validatePrereq(...coursesTaken: CompletedCourse[]): boolean {
             for (const course of coursesTaken) {
-                if (
-                    this.courseID.equals(course.courseID) &&
-                    course.grade >= this.minGrade
-                ) {
+                if (this.courseID.equals(course.courseID) && course.grade >= this.minGrade) {
                     return true;
                 }
             }
@@ -186,10 +169,7 @@ export namespace Prereq {
             return this.courseID.toString();
         }
 
-        public static fromCourseName(
-            courseName: string,
-            minGrade: Grade = Grade.C
-        ): Course {
+        public static fromCourseName(courseName: string, minGrade: Grade = Grade.C): Course {
             return new Course(CourseID.fromCourseName(courseName), minGrade);
         }
     }

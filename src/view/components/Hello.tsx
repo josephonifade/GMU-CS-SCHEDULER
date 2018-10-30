@@ -12,8 +12,7 @@ export class Hello extends React.Component<HelloProps, {}> {
         return (
             <div>
                 <h1>
-                    Hello world from {this.props.compiler} and{" "}
-                    {this.props.framework}!
+                    Hello world from {this.props.compiler} and {this.props.framework}!
                 </h1>
                 <iframe
                     width="560"

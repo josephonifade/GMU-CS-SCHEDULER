@@ -11,10 +11,7 @@ export class CourseID {
     }
 
     public equals(other: CourseID): boolean {
-        return (
-            this.department === other.department &&
-            this.courseNumber === other.courseNumber
-        );
+        return this.department === other.department && this.courseNumber === other.courseNumber;
     }
 
     public toString(): string {

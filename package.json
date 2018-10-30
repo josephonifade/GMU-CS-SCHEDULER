@@ -4,7 +4,7 @@
   "description": "",
   "main": "",
   "scripts": {
-    "clean": "npx prettier \"src/**/*.{ts,tsx}\" --write",
+    "clean": "npx prettier \"src/**/*.{ts,tsx}\" --write --loglevel=\"warn\"",
     "lint": "tslint -c tslint.json 'src/**/*.{ts,tsx}'",
     "build:ts-transpile": "tsc",
     "build:html": "webpack",
@@ -42,6 +42,7 @@
   },
   "prettier": {
     "tabWidth": 4,
-    "bracketSpacing": false
+    "bracketSpacing": false,
+    "printWidth": 100
   }
 }
