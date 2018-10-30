@@ -2,9 +2,11 @@
 /.vscode/*
 /node_modules/
 /node_modules/*
-/src/test.ts
-/bin/test.js
+/src/data/test.ts
+/bin/data/test.js
 /ignore/
 /ignore/*
 /bin/
 /bin/*
+/dist/
+/dist/*

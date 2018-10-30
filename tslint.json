@@ -1,7 +1,8 @@
 {
     "defaultSeverity": "error",
     "extends": [
-        "tslint:recommended"
+        "tslint:recommended",
+        "tslint-react"
     ],
     "jsRules": {},
     "rules": {
@@ -35,7 +36,8 @@
         "max-classes-per-file": false,
         "interface-name": false,
         "no-namespace": false,
-        "no-console": false
+        "no-console": false,
+        "jsx-wrap-multiline": false
     },
     "rulesDirectory": []
 }
