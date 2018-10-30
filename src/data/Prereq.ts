@@ -1,4 +1,4 @@
-import { CompletedCourse } from "./CompletedCourse";
+import {CompletedCourse} from "./CompletedCourse";
 import {CourseID} from "./CourseID";
 import {Grade} from "./Grade";
 
@@ -7,7 +7,9 @@ import {Grade} from "./Grade";
  *
  * Examples:
  *
- * Example 1 - CS 321: CS 310C and (ENGH 302C or (HNRS 110C and (HNRS 122C, 130C, 230C or 240C))).
+ * Example 1:
+ * CS 321: CS 310C and
+ * (ENGH 302C or (HNRS 110C and (HNRS 122C, 130C, 230C or 240C))).
  *
  * const CS321: Course = new Course("CS", 321, 3, Grade.C, new Prereq.And(
  *  Prereq.Course.fromCourseName("CS 310"), new Prereq.Or(
@@ -18,12 +20,12 @@ import {Grade} from "./Grade";
  *              Prereq.Course.fromCourseName("HNRS 230"),
  *              Prereq.Course.fromCourseName("HNRS 240"))))));
  *
- * Example 2 - CS 105: No prerequisites
+ * Example 2:
+ * CS 105: No prerequisites
  *
  * const CS105: Course = new Course("CS", 105, 1, Grade.C, Prereq.NONE)
  */
 export namespace Prereq {
-
     const TO_STRING_DISTANCE_FOR_COMMA: number = 2;
 
     /**
@@ -37,8 +39,10 @@ export namespace Prereq {
     /**
      * Describes a course with no prerequisites
      */
-    export const NONE: Prerequisite = {toString: () => "None",
-    validatePrereq: (..._: CompletedCourse[] /*coursesTaken*/) => true};
+    export const NONE: Prerequisite = {
+        toString: () => "None",
+        validatePrereq: (..._: CompletedCourse[] /*coursesTaken*/) => true
+    };
 
     /**
      * Describes multiple prerequisites where all are required
@@ -68,16 +72,26 @@ export namespace Prereq {
             for (let i = 0; i < this.requirements.length; i++) {
                 const requirement = this.requirements[i];
 
-                if (previousRequirement instanceof Course && requirement instanceof Course
-                    && previousRequirement.courseID.department === requirement.courseID.department) {
+                if (
+                    previousRequirement instanceof Course &&
+                    requirement instanceof Course &&
+                    previousRequirement.courseID.department ===
+                        requirement.courseID.department
+                ) {
                     output += requirement.courseID.courseNumber;
                 } else {
                     output += requirement.toString(false);
                 }
 
-                if (i < this.requirements.length - TO_STRING_DISTANCE_FOR_COMMA) {
+                if (
+                    i <
+                    this.requirements.length - TO_STRING_DISTANCE_FOR_COMMA
+                ) {
                     output += ", ";
-                } else if (i === this.requirements.length - TO_STRING_DISTANCE_FOR_COMMA) {
+                } else if (
+                    i ===
+                    this.requirements.length - TO_STRING_DISTANCE_FOR_COMMA
+                ) {
                     output += " and ";
                 }
                 previousRequirement = requirement;
@@ -85,7 +99,6 @@ export namespace Prereq {
             output += outer ? "" : ")";
             return output;
         }
-
     }
 
     /**
@@ -116,16 +129,26 @@ export namespace Prereq {
             for (let i = 0; i < this.requirements.length; i++) {
                 const requirement = this.requirements[i];
 
-                if (previousRequirement instanceof Course && requirement instanceof Course
-                    && previousRequirement.courseID.department === requirement.courseID.department) {
+                if (
+                    previousRequirement instanceof Course &&
+                    requirement instanceof Course &&
+                    previousRequirement.courseID.department ===
+                        requirement.courseID.department
+                ) {
                     output += requirement.courseID.courseNumber;
                 } else {
                     output += requirement.toString(false);
                 }
 
-                if (i < this.requirements.length - TO_STRING_DISTANCE_FOR_COMMA) {
+                if (
+                    i <
+                    this.requirements.length - TO_STRING_DISTANCE_FOR_COMMA
+                ) {
                     output += ", ";
-                } else if (i === this.requirements.length - TO_STRING_DISTANCE_FOR_COMMA) {
+                } else if (
+                    i ===
+                    this.requirements.length - TO_STRING_DISTANCE_FOR_COMMA
+                ) {
                     output += " or ";
                 }
                 previousRequirement = requirement;
@@ -149,7 +172,10 @@ export namespace Prereq {
 
         public validatePrereq(...coursesTaken: CompletedCourse[]): boolean {
             for (const course of coursesTaken) {
-                if (this.courseID.equals(course.courseID) && course.grade >= this.minGrade) {
+                if (
+                    this.courseID.equals(course.courseID) &&
+                    course.grade >= this.minGrade
+                ) {
                     return true;
                 }
             }
@@ -160,7 +186,10 @@ export namespace Prereq {
             return this.courseID.toString();
         }
 
-        public static fromCourseName(courseName: string, minGrade: Grade = Grade.C): Course {
+        public static fromCourseName(
+            courseName: string,
+            minGrade: Grade = Grade.C
+        ): Course {
             return new Course(CourseID.fromCourseName(courseName), minGrade);
         }
     }

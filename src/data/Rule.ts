@@ -15,7 +15,6 @@ export interface Rule {
  * A student must have 120 credits to graduate
  */
 class CreditRule implements Rule {
-
     public checkRule(user: User): boolean {
         console.log("checked rule");
         let creditTotal: number = 0;
@@ -25,7 +24,10 @@ class CreditRule implements Rule {
             if (course == null) {
                 continue;
             }
-            if (course.checkPrerequisites() && course.checkPassed(courseTaken.grade)) {
+            if (
+                course.checkPrerequisites() &&
+                course.checkPassed(courseTaken.grade)
+            ) {
                 creditTotal += course.credits;
             }
         }

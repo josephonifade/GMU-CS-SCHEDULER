@@ -2,13 +2,12 @@
     "defaultSeverity": "error",
     "extends": [
         "tslint:recommended",
-        "tslint-react"
+        "tslint-react",
+        "tslint-config-prettier"
     ],
     "jsRules": {},
     "rules": {
-        "max-line-length": {
-            "options": [120]
-        },
+        "max-line-length": [true, {"limit": 80, "ignore-pattern": "//"}],
         "no-any": true,
         "no-magic-numbers": true,
         "prefer-for-of": true,
@@ -18,7 +17,6 @@
         "variable-name": [true, "ban-keywords", "check-format"],
         "class-name": true,
         "indent": [true, "spaces", 4],
-        "eofline": true,
         "no-unused-expression": [true, "allow-fast-null-checks"],
         "ordered-imports": true,
         "member-ordering": [true,
