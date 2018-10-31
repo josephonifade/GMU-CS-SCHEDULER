@@ -26,6 +26,33 @@ To view the website, **assuming you're using Visual Stuido Code (VSC) as your ID
 
 You'll also want to download the VSC extension **Prettier - Code formatter** by Esben Petersen. It's a code formatter, so if you try to run `npm run build` and you get a ton of linting errors, you can right click and run "Format Document" and it should fix a lot of things.
 
+## NPM Package Explanations
+- Project dependencies
+    - [React][1]
+        - MVC that handles our front-end logic. Handles application state and visual components.
+- Developer dependencies
+    - [NPM][2]
+        - Package manager. Organizes and allows us to use all of these packages I'm explaining.
+    - [Typescript][3]
+        - The language we're coding in. Provides a type-safe programming language that transpiles down to Javascript. Also provides the `tsc` command that does this transpilation, but we're not using it for the project.
+    - [Webpack & Webpack-CLI][4]
+        - Module bundler. Takes all of our Typescript files and React files and combines them into one singular **main.js** file in the `dist/` directory using the Awesome-Typescript-Loader and Source-Map-Loader packages below.
+        - CLI is short for Command-Line Interface; this just allows us to run `webpack` on the command line to bundle the files.
+    - [Awesome-Typescript-Loader][5]
+        - Helps Webpack transpile the typescript folder.
+    - [Source-Map-Loader][6]
+        - Helps Webpack create a source map along with the bundled file. I have no idea how to read it but apparently it's useful...
+    - [Prettier][7]
+        - A code formatter. Its rules are defined in the **package.json** file.
+    - [Tslint][8]
+        - A linter. Throws errors if your code is not to style.
+        - [Tslint-React][9]
+            - Helps Tslint read React's `.tsx` files.
+        - [Tslint-Config-Prettier][10]
+            - Helps Tslint's style match that of Prettier.
+    - [Husky][11]
+        - Provides pre-commit hooks. We use this to make sure that your code is formatted and linted before you commit or push it to GitHub.
+
 ## Tutorials
 
 Good tutorial on React (watch on 1.5x speed): https://www.youtube.com/watch?v=A71aqufiNtQ
@@ -34,3 +61,15 @@ More in-depth React tutorial series by the same guy: https://www.youtube.com/wat
 
 ## What's next
 I'll set up for testing soon!...
+
+[1]: https://reactjs.org/
+[2]: https://www.npmjs.com/
+[3]: https://www.typescriptlang.org/index.html
+[4]: https://webpack.js.org/
+[5]: https://github.com/s-panferov/awesome-typescript-loader
+[6]: https://github.com/webpack-contrib/source-map-loader
+[7]: https://prettier.io/
+[8]: https://palantir.github.io/tslint/
+[9]: https://github.com/palantir/tslint-react
+[10]: https://github.com/alexjoverm/tslint-config-prettier
+[11]: https://github.com/typicode/husky
