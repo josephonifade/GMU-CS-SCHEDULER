@@ -23,9 +23,9 @@ After you pull, run `npm install` to make sure you have all of the dependencies 
 
 ### Extension explanations
 
-To view the website, **assuming you're using Visual Stuido Code (VSC) as your IDE**, download the VSC extention **Live Server** (by Ritwick Dey) and reload. If you navigate to html/index.html, there will be a "Go Live" button on your taskbar. Clicking that will open a local server and open up index.html, and it's a live reloading server, so any changes you make will be reflected as soon as you run `npm run build` again. If you're not using VSC, there are similar live server options elsewhere.
+To view the website, **assuming you're using Visual Stuido Code (VSC) as your IDE**, download the VSC extention **Live Server** (by Ritwick Dey) and reload. If you navigate to html/index.html, there will be a "Go Live" button on your taskbar. Clicking that will open a local server and open up index.html, and it's a live reloading server, so any changes you make will be reflected as soon as you run `npm start` again. If you're not using VSC, there are similar live server options elsewhere.
 
-You'll also want to download the VSC extension **Prettier - Code formatter** by Esben Petersen. It's a code formatter, so if you try to run `npm run build` and you get a ton of linting errors, you can right click and run "Format Document" and it should fix a lot of things.
+You'll also want to download the VSC extension **Prettier - Code formatter** by Esben Petersen. It's a code formatter, so if you try to run `npm start` and you get a ton of linting errors, you can right click and run "Format Document" and it should fix a lot of things.
 
 ## NPM Package Explanations
 - Project dependencies
