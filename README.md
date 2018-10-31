@@ -3,7 +3,7 @@
 # Readme for developers
 
 ## General instructions
-After you pull, run `npm install` to make sure you have all of the dependencies in your directory. (The actual dependencies aren't put on GitHub because they would take forever to push and pull, but they're described in package.json)
+After you pull, run `npm install` to make sure you have all of the dependencies in your directory. (The actual dependencies aren't put on GitHub because they would take forever to push and pull, but they're described in package.json). After the first time, this should happen automatically after each pull.
 
 ## Commands
 - `npm start`: First checks the code against the linter to make sure it's up to style / standard. Then compiles the code so that the website can use it. **The command you'll want to use most often.**
