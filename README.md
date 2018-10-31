@@ -5,11 +5,12 @@
 ## General instructions
 After you pull, run `npm install` to make sure you have all of the dependencies in your directory. (The actual dependencies aren't put on GitHub because they would take forever to push and pull, but they're described in package.json)
 
-## Commands:
+## Commands
 - `npm start`: First checks the code against the linter to make sure it's up to style / standard. Then compiles the code so that the website can use it. **The command you'll want to use most often.**
+- `npm test`: First checks the code against the linter to make sure it's up to style / standard. Then runs all test files.
 - `npm run build:ts-transpile`: First checks the code against the linter to make sure it's up to style / standard. Then compiles the code so that it can be run locally using node. Useful for checking / testing TypeScript files.
 
-## Visual Studio Code:
+## Visual Studio Code
 ### Extensions:
 - Live Server by Ritwick Dey
 - Prettier - Code formatter by Esben Petersen
@@ -28,30 +29,34 @@ You'll also want to download the VSC extension **Prettier - Code formatter** by 
 
 ## NPM Package Explanations
 - Project dependencies
-    - [React][1]
+    - [react][1]
         - MVC that handles our front-end logic. Handles application state and visual components.
 - Developer dependencies
-    - [NPM][2]
+    - [nPM][2]
         - Package manager. Organizes and allows us to use all of these packages I'm explaining.
-    - [Typescript][3]
+    - [typescript][3]
         - The language we're coding in. Provides a type-safe programming language that transpiles down to Javascript. Also provides the `tsc` command that does this transpilation, but we're not using it for the project.
-    - [Webpack & Webpack-CLI][4]
+    - [webpack & webpack-cli][4]
         - Module bundler. Takes all of our Typescript files and React files and combines them into one singular **main.js** file in the `dist/` directory using the Awesome-Typescript-Loader and Source-Map-Loader packages below.
         - CLI is short for Command-Line Interface; this just allows us to run `webpack` on the command line to bundle the files.
-    - [Awesome-Typescript-Loader][5]
+    - [awesome-typescript-loader][5]
         - Helps Webpack transpile the typescript folder.
-    - [Source-Map-Loader][6]
+    - [source-map-loader][6]
         - Helps Webpack create a source map along with the bundled file. I have no idea how to read it but apparently it's useful...
-    - [Prettier][7]
+    - [prettier][7]
         - A code formatter. Its rules are defined in the **package.json** file.
-    - [Tslint][8]
+    - [tslint][8]
         - A linter. Throws errors if your code is not to style.
-        - [Tslint-React][9]
+        - [tslint-react][9]
             - Helps Tslint read React's `.tsx` files.
-        - [Tslint-Config-Prettier][10]
+        - [tslint-config-prettier][10]
             - Helps Tslint's style match that of Prettier.
-    - [Husky][11]
+    - [husky][11]
         - Provides pre-commit hooks. We use this to make sure that your code is formatted and linted before you commit or push it to GitHub.
+    - [jest][12]
+        - Unit-testing framework.
+        - [ts-jest][13]
+            - Allows us to use Jest with Typescript files.
 
 ## Tutorials
 
@@ -73,3 +78,5 @@ I'll set up for testing soon!...
 [9]: https://github.com/palantir/tslint-react
 [10]: https://github.com/alexjoverm/tslint-config-prettier
 [11]: https://github.com/typicode/husky
+[12]: https://jestjs.io/en/
+[13]: https://kulshekhar.github.io/ts-jest/

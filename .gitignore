@@ -2,8 +2,8 @@
 /.vscode/*
 /node_modules/
 /node_modules/*
-/src/data/test.ts
-/bin/data/test.js
+/src/data/TryStuffOut.ts
+/bin/data/TryStuffOut.js
 /ignore/
 /ignore/*
 /bin/

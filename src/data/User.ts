@@ -1,4 +1,5 @@
 import {CompletedCourse} from "./CompletedCourse";
+import {catalog} from "./Course";
 import {rules} from "./Rule";
 
 /**
@@ -38,7 +39,7 @@ export class User {
      */
     public checkCanGraduate(): boolean {
         for (const rule of rules) {
-            if (!rule.checkRule(this)) {
+            if (!rule.checkRule(this, catalog)) {
                 return false;
             }
         }

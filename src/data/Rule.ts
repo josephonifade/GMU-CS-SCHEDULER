@@ -1,22 +1,22 @@
-import {catalog} from "./Course";
+import {Course} from "./Course";
+import {CourseID} from "./CourseID";
 import {User} from "./User";
 
-const TOTAL_CREDIT_REQUIREMENT: number = 120;
+export const TOTAL_CREDIT_REQUIREMENT: number = 120;
 
 /**
  * A rule that is checked to determine if a student is ready to graduate
  */
 export interface Rule {
-    checkRule(user: User): boolean;
+    checkRule(user: User, catalog: Map<CourseID, Course>): boolean;
     errorMessage(): string;
 }
 
 /**
  * A student must have 120 credits to graduate
  */
-class CreditRule implements Rule {
-    public checkRule(user: User): boolean {
-        console.log("checked rule");
+export const CREDIT_RULE: Rule = {
+    checkRule: (user: User, catalog: Map<CourseID, Course>) => {
         let creditTotal: number = 0;
 
         for (const courseTaken of user.coursesTaken) {
@@ -30,14 +30,11 @@ class CreditRule implements Rule {
         }
 
         return creditTotal >= TOTAL_CREDIT_REQUIREMENT;
-    }
-
-    public errorMessage(): string {
-        return "You have less than 120 credits.";
-    }
-}
+    },
+    errorMessage: () => "You have less than 120 credits."
+};
 
 /**
  * List of all rules. Each rule created should be added to this list.
  */
-export let rules: Rule[] = [new CreditRule()];
+export let rules: Rule[] = [CREDIT_RULE];
