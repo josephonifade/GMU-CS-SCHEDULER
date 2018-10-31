@@ -83,7 +83,4 @@ I guess it's time for us to do some planning and start writing some code!
 [11]: https://github.com/typicode/husky
 [12]: https://jestjs.io/en/
 [13]: https://kulshekhar.github.io/ts-jest/
-<<<<<<< HEAD
 [14]: https://github.com/isaacs/rimraf
-=======
->>>>>>> e6db14f44799320b0b38d612b0d52937dc7aeb16
