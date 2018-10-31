@@ -32,7 +32,7 @@ You'll also want to download the VSC extension **Prettier - Code formatter** by 
     - [react][1]
         - MVC that handles our front-end logic. Handles application state and visual components.
 - Developer dependencies
-    - [nPM][2]
+    - [npm][2]
         - Package manager. Organizes and allows us to use all of these packages I'm explaining.
     - [typescript][3]
         - The language we're coding in. Provides a type-safe programming language that transpiles down to Javascript. Also provides the `tsc` command that does this transpilation, but we're not using it for the project.
@@ -65,7 +65,7 @@ Good tutorial on React (watch on 1.5x speed): https://www.youtube.com/watch?v=A7
 More in-depth React tutorial series by the same guy: https://www.youtube.com/watch?v=vYldnghykaU&list=PLillGF-RfqbbKWfm3Y_RF57dNGsHnkYqO
 
 ## What's next
-I'll set up for testing soon!...
+I guess it's time for us to do some planning and start writing some code!
 
 [1]: https://reactjs.org/
 [2]: https://www.npmjs.com/
