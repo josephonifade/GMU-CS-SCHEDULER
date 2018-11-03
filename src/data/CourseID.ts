@@ -1,7 +1,9 @@
+import {RequirementOption} from "./CSProgram";
+
 /**
  * The identifying information of a course -- the department and number
  */
-export class CourseID {
+export class CourseID implements RequirementOption {
     public readonly department: string;
     public readonly courseNumber: number;
 
