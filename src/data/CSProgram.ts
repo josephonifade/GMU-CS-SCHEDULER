@@ -119,23 +119,27 @@ export const CS_PROGRAM = new CSProgram([
     new Category("Natural Science", [
         new Requirement(0, [
             new OptionList(1, [
-                new OptionList(0, [ // Biology
+                new OptionList(0, [
+                    // Biology
                     new CourseID("BIOL", 103),
-                    new OptionList(0, [new CourseID("BIOL", 106), new CourseID("BIOL", 107),])
+                    new OptionList(0, [new CourseID("BIOL", 106), new CourseID("BIOL", 107)])
                 ]),
-                new OptionList(0, [ // Chemistry
-                    new OptionList(0, [new CourseID("CHEM", 211), new CourseID("CHEM", 213),]),
-                    new OptionList(0, [new CourseID("CHEM", 212), new CourseID("CHEM", 214),]),
+                new OptionList(0, [
+                    // Chemistry
+                    new OptionList(0, [new CourseID("CHEM", 211), new CourseID("CHEM", 213)]),
+                    new OptionList(0, [new CourseID("CHEM", 212), new CourseID("CHEM", 214)])
                 ]),
-                new OptionList(0, [ // Geology
-                    new OptionList(0, [new CourseID("GEOL", 101), new CourseID("GEOL", 102),]),
+                new OptionList(0, [
+                    // Geology
+                    new OptionList(0, [new CourseID("GEOL", 101), new CourseID("GEOL", 102)])
                 ]),
-                new OptionList(0, [ // Physics
-                    new OptionList(0, [new CourseID("PHYS", 160), new CourseID("PHYS", 161),]),
-                    new OptionList(0, [new CourseID("PHYS", 260), new CourseID("PHYS", 261),]),
-                ]),
-            ]),
-        ]),
+                new OptionList(0, [
+                    // Physics
+                    new OptionList(0, [new CourseID("PHYS", 160), new CourseID("PHYS", 161)]),
+                    new OptionList(0, [new CourseID("PHYS", 260), new CourseID("PHYS", 261)])
+                ])
+            ])
+        ])
     ]),
     new Category("Communication", [new Requirement(0, [new CourseID("COMM", 100)])]),
     new Category("Mason Core - Written Communication", [
@@ -350,7 +354,7 @@ export const CS_PROGRAM = new CSProgram([
             new CourseID("SOCI", 352),
             new CourseID("SOCI", 355),
             new CourseID("TOUR", 311),
-            new CourseID("WMST", 200),
+            new CourseID("WMST", 200)
         ])
     ]),
     new Category("Mason Core - Global Understanding", [
@@ -452,7 +456,7 @@ export const CS_PROGRAM = new CSProgram([
             new CourseID("SYST", 497),
             new CourseID("THR", 359),
             new CourseID("TOUR", 210),
-            new CourseID("WMST", 100),
-        ]),
-    ]),
+            new CourseID("WMST", 100)
+        ])
+    ])
 ]);
