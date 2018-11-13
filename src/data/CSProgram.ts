@@ -15,7 +15,7 @@ class Requirement {
 export interface RequirementOption {}
 
 class OptionList implements RequirementOption {
-    constructor(readonly options: RequirementOption[]) {}
+    constructor(readonly count: number, readonly options: RequirementOption[]) {}
 }
 
 interface RuleOption extends RequirementOption {
@@ -81,7 +81,7 @@ export const CS_PROGRAM = new CSProgram([
             new CourseID("CS", 490),
             new CourseID("CS", 491),
             new CourseID("CS", 499),
-            new OptionList([new CourseID("MATH", 446), new CourseID("OR", 481)])
+            new OptionList(0, [new CourseID("MATH", 446), new CourseID("OR", 481)])
         ])
     ]),
     new Category("Mathematics", [
@@ -116,10 +116,27 @@ export const CS_PROGRAM = new CSProgram([
             MATH_CS_300_PLUS
         ])
     ]),
-    // TODO:
-    // new Category("Natural Science", [ // This is gonna take some work...
-    //     new Requirement(),
-    // ]),
+    new Category("Natural Science", [
+        new Requirement(0, [
+            new OptionList(1, [
+                new OptionList(0, [ // Biology
+                    new CourseID("BIOL", 103),
+                    new OptionList(0, [new CourseID("BIOL", 106), new CourseID("BIOL", 107),])
+                ]),
+                new OptionList(0, [ // Chemistry
+                    new OptionList(0, [new CourseID("CHEM", 211), new CourseID("CHEM", 213),]),
+                    new OptionList(0, [new CourseID("CHEM", 212), new CourseID("CHEM", 214),]),
+                ]),
+                new OptionList(0, [ // Geology
+                    new OptionList(0, [new CourseID("GEOL", 101), new CourseID("GEOL", 102),]),
+                ]),
+                new OptionList(0, [ // Physics
+                    new OptionList(0, [new CourseID("PHYS", 160), new CourseID("PHYS", 161),]),
+                    new OptionList(0, [new CourseID("PHYS", 260), new CourseID("PHYS", 261),]),
+                ]),
+            ]),
+        ]),
+    ]),
     new Category("Communication", [new Requirement(0, [new CourseID("COMM", 100)])]),
     new Category("Mason Core - Written Communication", [
         new Requirement(0, [new CourseID("ENGH", 100), new CourseID("ENGH", 101)])
@@ -253,7 +270,7 @@ export const CS_PROGRAM = new CSProgram([
     new Category("Mason Core - Western Civilization/World History", [
         new Requirement(1, [
             // This whole thing is semantiacally identical to one long list of courses, but this more closely resembles the catalog
-            new OptionList([
+            new OptionList(0, [
                 new CourseID("HIST", 100),
                 // TODO: Need to check if transfer student
                 new CourseID("HIST", 101),
@@ -272,7 +289,7 @@ export const CS_PROGRAM = new CSProgram([
                 new CourseID("HIST", 436),
                 new CourseID("HIST", 480)
             ]),
-            new OptionList([
+            new OptionList(0, [
                 new CourseID("HIST", 125),
                 // TODO: Need to check if transfer student
                 new CourseID("HIST", 202),
@@ -289,7 +306,153 @@ export const CS_PROGRAM = new CSProgram([
             new CourseID("ANTH", 363),
             new CourseID("ANTH", 372),
             new CourseID("ANTH", 396),
-            new CourseID("BUS", 100)
+            new CourseID("BUS", 100),
+            new CourseID("CONF", 101),
+            new CourseID("CONS", 410),
+            new CourseID("CRIM", 100),
+            new CourseID("ECON", 100),
+            new CourseID("ECON", 103),
+            new CourseID("ECON", 104),
+            new CourseID("ECON", 105),
+            new CourseID("ECON", 367),
+            new CourseID("EDUC", 203),
+            new CourseID("EDUC", 372),
+            new CourseID("GCH", 325),
+            new CourseID("GGS", 103),
+            new CourseID("GOVT", 101),
+            new CourseID("GOVT", 103),
+            new CourseID("GOVT", 367),
+            new CourseID("HEAL", 230),
+            new CourseID("HIST", 121),
+            new CourseID("HIST", 122),
+            new CourseID("INTS", 300),
+            new CourseID("INTS", 304),
+            new CourseID("INTS", 316),
+            new CourseID("INTS", 317),
+            new CourseID("INTS", 319),
+            new CourseID("INTS", 320),
+            new CourseID("INTS", 321),
+            new CourseID("INTS", 331),
+            new CourseID("INTS", 334),
+            new CourseID("INTS", 336),
+            new CourseID("INTS", 347),
+            new CourseID("INTS", 361),
+            new CourseID("INTS", 362),
+            new CourseID("INTS", 371),
+            new CourseID("INTS", 436),
+            new CourseID("INTS", 437),
+            new CourseID("INTS", 438),
+            new CourseID("LING", 306),
+            new CourseID("PSYC", 100),
+            new CourseID("PSYC", 211),
+            new CourseID("PSYC", 231),
+            new CourseID("SOCI", 101),
+            new CourseID("SOCI", 352),
+            new CourseID("SOCI", 355),
+            new CourseID("TOUR", 311),
+            new CourseID("WMST", 200),
         ])
-    ])
+    ]),
+    new Category("Mason Core - Global Understanding", [
+        new Requirement(1, [
+            new CourseID("ANTH", 302),
+            new CourseID("ANTH", 306),
+            new CourseID("ANTH", 307),
+            new CourseID("ANTH", 308),
+            new CourseID("ANTH", 309),
+            new CourseID("ANTH", 312),
+            new CourseID("ANTH", 313),
+            new CourseID("ANTH", 316),
+            new CourseID("ANTH", 331),
+            new CourseID("ANTH", 332),
+            new CourseID("ANTH", 382),
+            new CourseID("ARTH", 319),
+            new CourseID("ARTH", 320),
+            new CourseID("ARTH", 382),
+            new CourseID("ARTH", 383),
+            new CourseID("ARTH", 384),
+            new CourseID("ARTH", 385),
+            new CourseID("ARTH", 386),
+            new CourseID("BUS", 200),
+            new CourseID("CEIE", 100),
+            new CourseID("CEIE", 497),
+            new CourseID("COMM", 305),
+            new CourseID("COMM", 456),
+            new CourseID("CONF", 340),
+            new CourseID("CRIM", 405),
+            new CourseID("DANC", 118),
+            new CourseID("DANC", 318),
+            new CourseID("DANC", 418),
+            new CourseID("ECON", 360),
+            new CourseID("ECON", 361),
+            new CourseID("ECON", 362),
+            new CourseID("ECON", 380),
+            new CourseID("ECON", 390),
+            new CourseID("ENGH", 362),
+            new CourseID("ENGH", 366),
+            new CourseID("FAVS", 300),
+            new CourseID("FRLN", 331),
+            new CourseID("GCH", 205),
+            new CourseID("GGS", 101),
+            new CourseID("GLOA", 101),
+            new CourseID("GOVT", 132),
+            new CourseID("GOVT", 133),
+            new CourseID("HIST", 251),
+            new CourseID("HIST", 252),
+            new CourseID("HIST", 261),
+            new CourseID("HIST", 262),
+            new CourseID("HIST", 271),
+            new CourseID("HIST", 272),
+            new CourseID("HIST", 281),
+            new CourseID("HIST", 282),
+            new CourseID("HIST", 328),
+            new CourseID("HIST", 329),
+            new CourseID("HIST", 356),
+            new CourseID("HIST", 357),
+            new CourseID("HIST", 358),
+            new CourseID("HIST", 360),
+            new CourseID("HIST", 364),
+            new CourseID("HIST", 365),
+            new CourseID("HIST", 384),
+            new CourseID("HIST", 387),
+            new CourseID("HIST", 460),
+            new CourseID("HIST", 462),
+            new CourseID("INTS", 201),
+            new CourseID("INTS", 303),
+            new CourseID("INTS", 314),
+            new CourseID("INTS", 315),
+            new CourseID("INTS", 406),
+            new CourseID("INTS", 416),
+            new CourseID("INYO", 105),
+            new CourseID("JAPA", 310),
+            new CourseID("MBUS", 305),
+            new CourseID("ME", 497),
+            new CourseID("MUSI", 103),
+            new CourseID("MUSI", 431),
+            new CourseID("PHIL", 243),
+            new CourseID("PROV", 150),
+            new CourseID("PSYC", 379),
+            new CourseID("RELI", 100),
+            new CourseID("RELI", 211),
+            new CourseID("RELI", 212),
+            new CourseID("RELI", 313),
+            new CourseID("RELI", 315),
+            new CourseID("RELI", 320),
+            new CourseID("RELI", 322),
+            new CourseID("RELI", 341),
+            new CourseID("RELI", 374),
+            new CourseID("RELI", 384),
+            new CourseID("RUSS", 354),
+            new CourseID("SOCI", 120),
+            new CourseID("SOCI", 320),
+            new CourseID("SOCI", 332),
+            new CourseID("SPAN", 322),
+            new CourseID("SPAN", 466),
+            new CourseID("SYST", 202),
+            new CourseID("SYST", 497),
+            new CourseID("THR", 359),
+            new CourseID("TOUR", 210),
+            new CourseID("WMST", 100),
+        ]),
+    ]),
 ]);
