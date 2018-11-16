@@ -39,7 +39,6 @@ export class Course {
 
 export let catalog: Map<CourseID, Course> = new Map<CourseID, Course>();
 
-/* tslint:disable:no-magic-numbers */
 const CS105: Course = new Course("CS", 105, 1, Grade.C, Prereq.NONE);
 
 export const CS321: Course = new Course(
@@ -65,8 +64,6 @@ export const CS321: Course = new Course(
 );
 
 const ENGH302: Course = new Course("ENGH", 302, 4, Grade.C, Prereq.NONE);
-
-/* tslint:enable:no-magic-numbers */
 
 catalog.set(CS105.id, CS105);
 catalog.set(CS321.id, CS321);

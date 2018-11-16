@@ -1,5 +1,3 @@
-/* tslint:disable:no-magic-numbers */
-
 import {CompletedCourse} from "../../data/CompletedCourse";
 import {Course} from "../../data/Course";
 import {CourseID} from "../../data/CourseID";
