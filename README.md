@@ -27,6 +27,16 @@ To view the website, **assuming you're using Visual Stuido Code (VSC) as your ID
 
 You'll also want to download the VSC extension **Prettier - Code formatter** by Esben Petersen. It's a code formatter, so if you try to run `npm start` and you get a ton of linting errors, you can right click and run "Format Document" and it should fix a lot of things.
 
+
+# Ignore the rest of this stuff and run these
+- npm install -g typescript
+- npm install -g tslint
+- npm install -g jest
+- npm install -g ts-jest
+
+# To compile the code just run `tsc`
+
+
 <!-- Next number: 15 -->
 ## NPM Package Explanations
 - Project dependencies
