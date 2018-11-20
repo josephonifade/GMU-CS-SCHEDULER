@@ -1,7 +1,6 @@
 import {CompletedCourse} from "./CompletedCourse";
 import {catalog} from "./Course";
 import {rules} from "./Rule";
-import { CS_PROGRAM } from "./CSProgram";
 
 /**
  * The year name of the user
@@ -33,6 +32,8 @@ export class User {
         // Dynamically generate the credit classification
         let credits = 0;
         for (let course of coursesTaken){
+            let x = course.courseID.toString; // need to change this to read the credits
+            x = x.toString;
             credits += 3; // TODO: This needs to be changed to the actually credits of the class.
                           // Assuming 3 credits for each class for the sake of demoing
         }
