@@ -25,7 +25,6 @@ export class User {
     constructor(
         semestersRemaining: number,
         year: Year,
-        creditYear: Year,
         coursesTaken: CompletedCourse[]
     ) {
         this.semestersRemaining = semestersRemaining;

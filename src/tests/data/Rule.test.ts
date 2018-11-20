@@ -9,7 +9,7 @@ import {User, Year} from "../../data/User";
 const fakeCourseID: CourseID = new CourseID("Fake", 101);
 const fakeCatalog: Map<CourseID, Course> = new Map<CourseID, Course>();
 const fakeCompletedCourse: CompletedCourse = new CompletedCourse(fakeCourseID, Grade.Bm);
-const fakeUser: User = new User(4, Year.Sophomore, Year.Sophomore, [fakeCompletedCourse]);
+const fakeUser: User = new User(4, Year.Sophomore, [fakeCompletedCourse]);
 
 beforeEach(() => {
     fakeCatalog.clear();
