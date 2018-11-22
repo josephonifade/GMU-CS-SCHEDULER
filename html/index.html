@@ -1,16 +1,60 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8" />
-        <title>Hello World</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="StyleSheet.css" rel="stylesheet" type="text/css">
+    </link>
     </head>
-    <body>
-        <div id="example"></div>
 
-        
-        <!-- Dependencies -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <!-- Main -->
-        <script src="../bin/index.js"></script>
+
+    <body>
+    <div id="CurrentCatalog" class="tabcontent">
+    <h1>Current Catalog</h1>
+    <p>You are viewing George Mason University Catalog Year 2018-2019 for Computer Science Major</p>
+    </div>
+
+    <div id="Save" class="tabcontent">
+    <h1>Save</h1>
+    <p>Saving your current progress.</p> 
+    </div>
+
+    <div id="Export" class="tabcontent">
+    <h1>Export</h1>
+    <p>Exporting your information to a text file.</p>
+    </div>
+
+    <div id="GenerateSchedule" class="tabcontent">
+    <h1>Generate Schedule</h1>
+    <p>Generating your Schedule</p>
+    </div>
+
+    <button class="tablink" onclick="openCity('CurrentCatalog', this, 'red')" id="defaultOpen">Current Catalog</button>
+    <button class="tablink" onclick="openCity('Save', this, 'purple')">Save</button>
+    <button class="tablink" onclick="openCity('Export', this, 'blue')">Export</button>
+    <button class="tablink" onclick="openCity('GenerateSchedule', this, 'orange')">Generate Schedule</button>
+
+    <!----put the <script> into index.ts file -->
+    <script>
+        function openCity(cityName,elmnt,color) 
+        {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++)
+            {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < tablinks.length; i++) 
+            {
+                tablinks[i].style.backgroundColor = "";
+            }
+            document.getElementById(cityName).style.display = "block"; //display block as header
+            elmnt.style.backgroundColor = color;
+
+        }
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+    </script>
+    <script src="../bin/index.js"></script>
     </body>
-</html>
+</html> 
