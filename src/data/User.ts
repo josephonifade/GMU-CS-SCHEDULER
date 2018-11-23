@@ -1,6 +1,8 @@
 import {CompletedCourse} from "./CompletedCourse";
 import {catalog} from "./Course";
 import {rules} from "./Rule";
+import * as fs from "fs";
+import { Grade } from "./Grade";
 
 /**
  * The year name of the user
@@ -63,8 +65,97 @@ export class User {
 
     /**
      * Serializes all the user information
+     * FORMAT: SemestersRemaining:year{course1...courseN}
      */
     private serialize(): string {
-        
+        let result = "";
+        result += this.semestersRemaining + ":" + this.year +"{"
+        for (let course of this.coursesTaken) {
+            result += course.serialize();
+        }
+        return result;
+    }
+
+    /**
+     * Save a .txt file with the serialized componenets of this program
+     */
+    public saveFile(): boolean {
+        let fileContents = this.serialize();
+        fs.writeFile("/tmp/test", fileContents, function(err) {
+            if(err) {
+                console.log(err);
+                return false;
+            }
+
+            console.log("The file was saved!");
+            return true;
+        });
+        return true;
+    }
+
+    /**
+     * Load data from a .txt file
+     */
+    public loadFile(): boolean {
+        // TODO: Make this come from a file
+        let fileContents = "X:X{[abc:bcd][abc:bcd]}";
+        let semestersRemaining = fileContents.substring(0, fileContents.indexOf(':'));
+        fileContents = fileContents.substring(fileContents.indexOf(':')+1);
+        let year = fileContents.substring(0, fileContents.indexOf(':'));
+        fileContents = fileContents.substring(fileContents.indexOf(':')+1);
+
+        let completedCoursesFromFile = []
+        // Get all the completed courses
+        while(fileContents.indexOf('[') != -1) {
+            let currCourseParse = fileContents.substring(fileContents.indexOf('[')+1, fileContents.indexOf(']'))
+            let currCourseID = currCourseParse.substring(0, currCourseParse.indexOf(":"));
+            let currCourseGrade = +currCourseParse.substring(currCourseParse.indexOf(':')+1);
+            
+            let currCompletedCourse = CompletedCourse.fromCourseName(currCourseID, this.getGradeFromValue(currCourseGrade));
+            completedCoursesFromFile.push(currCompletedCourse);
+        }
+
+        this.coursesTaken = completedCoursesFromFile;
+        this.creditYear = this.getYearFromValue(year);
+        this.semestersRemaining = +semestersRemaining;
+
+        return true;
+    }
+    /**
+     * Get a Year enum from it's string value 
+     */
+    private getYearFromValue(value : string) : Year {
+        if(value == "Freshman")
+            return Year.Freshman;
+        if(value == "Sophomore")
+            return Year.Sophomore;
+        if(value == "Junior")
+            return Year.Junior;
+        return Year.Senior;
+    }
+
+    /**
+     * Converts a grade value to an enumeration
+     */
+    private getGradeFromValue(value : number) : Grade {
+        if(value == 4.0)
+            return Grade.Ap;
+        if(value == 3.67)
+            return Grade.Am;
+        if(value == 3.33)
+            return Grade.Bp
+        if(value == 3.0)
+            return Grade.B;
+        if(value == 2.67)
+            return Grade.Cm;
+        if(value == 2.33)
+            return Grade.Cp;
+        if(value == 2.0)
+            return Grade.C;
+        if(value == 1.67)
+            return Grade.Cm;
+        if(value == 1.0)
+            return Grade.D;
+        return Grade.F;
     }
 }

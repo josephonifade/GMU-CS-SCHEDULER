@@ -14,3 +14,4 @@ export enum Grade {
     D = 1.0,
     F = 0.0
 }
+
