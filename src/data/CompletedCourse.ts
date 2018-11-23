@@ -23,4 +23,13 @@ export class CompletedCourse {
     public static fromCourseName(courseName: string, grade: Grade): CompletedCourse {
         return new CompletedCourse(CourseID.fromCourseName(courseName), grade);
     }
+
+    /**
+     * Serializes a Completed Course
+     */
+    public serialize() : string {
+        let result = "[";
+        result += this.courseID + ":" + this.grade.valueOf();
+        return result + "]";
+    }
 }

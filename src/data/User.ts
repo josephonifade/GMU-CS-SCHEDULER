@@ -60,4 +60,11 @@ export class User {
         }
         return true;
     }
+
+    /**
+     * Serializes all the user information
+     */
+    private serialize(): string {
+        
+    }
 }

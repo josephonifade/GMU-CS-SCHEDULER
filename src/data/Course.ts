@@ -35,6 +35,19 @@ export class Course {
     public checkPassed(grade: Grade): boolean {
         return grade >= this.minGrade;
     }
+
+    /**
+     * Serializes the current course
+     */
+    public serialize(): string {
+        let result = "[";
+        result += this.id + ":";
+        result += this.credits + ":";
+        result += "none" + ":"; // TODO: Design a way to serialize Pre Reqs
+        result += this.minGrade.valueOf() + ":";
+        result += this.description + "]";
+        return result;
+    }
 }
 
 export let catalog: Map<CourseID, Course> = new Map<CourseID, Course>();
