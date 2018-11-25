@@ -1,60 +1,84 @@
 <!DOCTYPE html>
 <html>
-    <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="StyleSheet.css" rel="stylesheet" type="text/css">
-    </link>
-    </head>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="StyleSheet.css" rel="stylesheet" type="text/css">
+  </link>
+</head>
 
 
-    <body>
+<body>
+
+  <header>
     <div id="CurrentCatalog" class="tabcontent">
-    <h1>Current Catalog</h1>
-    <p>You are viewing George Mason University Catalog Year 2018-2019 for Computer Science Major</p>
+      <h1>Current Catalog</h1>
+      <p>You are viewing George Mason University Catalog Year 2018-2019 for Computer Science Major</p>
     </div>
 
     <div id="Save" class="tabcontent">
-    <h1>Save</h1>
-    <p>Saving your current progress.</p> 
+      <h1>Save</h1>
+      <p>Saving your current progress.</p>
     </div>
 
     <div id="Export" class="tabcontent">
-    <h1>Export</h1>
-    <p>Exporting your information to a text file.</p>
+      <h1>Export</h1>
+      <p>Exporting your information to a text file.</p>
     </div>
 
     <div id="GenerateSchedule" class="tabcontent">
-    <h1>Generate Schedule</h1>
-    <p>Generating your Schedule</p>
+      <h1>Generate Schedule</h1>
+      <p>Generating your Schedule</p>
     </div>
 
-    <button class="tablink" onclick="openCity('CurrentCatalog', this, 'red')" id="defaultOpen">Current Catalog</button>
-    <button class="tablink" onclick="openCity('Save', this, 'purple')">Save</button>
-    <button class="tablink" onclick="openCity('Export', this, 'blue')">Export</button>
-    <button class="tablink" onclick="openCity('GenerateSchedule', this, 'orange')">Generate Schedule</button>
+    <button class="tablink" data-tab-name="CurrentCatalog" data-color="red" id="defaultOpen">Current Catalog</button>
+    <button class="tablink" data-tab-name="Save" data-color="purple"> Save</button>
+    <button class="tablink" data-tab-name="Export" data-color="blue"> Export</button>
+    <button class="tablink" data-tab-name="GenerateSchedule" data-color="orange"> Generate Schedule</button>
+  </header>
 
-    <!----put the <script> into index.ts file -->
-    <script>
-        function openCity(cityName,elmnt,color) 
-        {
-            var i, tabcontent, tablinks;
-            tabcontent = document.getElementsByClassName("tabcontent");
-            for (i = 0; i < tabcontent.length; i++)
-            {
-                tabcontent[i].style.display = "none";
-            }
-            tablinks = document.getElementsByClassName("tablink");
-            for (i = 0; i < tablinks.length; i++) 
-            {
-                tablinks[i].style.backgroundColor = "";
-            }
-            document.getElementById(cityName).style.display = "block"; //display block as header
-            elmnt.style.backgroundColor = color;
+  <main>
+    <div>
+      <div id="CurrentCatalog-content" class="main-content" style="display: none;">
+        <h1>Current Catalog</h1>
+        <p>Current Catalog</p>
+      </div>
 
-        }
-        // Get the element with id="defaultOpen" and click on it
-        document.getElementById("defaultOpen").click();
-    </script>
-    <script src="../bin/index.js"></script>
-    </body>
-</html> 
+      <div id="GenerateSchedule-content" class="main-content" style="display: none;">
+        <h1>Generate Schedule</h1>
+        <p>Generating your Schedule</p>
+        <h2>Add a semester</h2>
+        <p>Please select the year:</p>
+
+        <form id="semesterForm">
+          <select name="year">
+            <option value="2018">2018</option>
+            <option value="2019">2019</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+            <option value="2025">2025</option>
+            <option value="2026">2026</option>
+            <option value="2027">2027</option>
+            <option value="2028">2028</option>
+
+          </select>
+          <br><br>
+
+          <select name="semester">
+            <option value="Fall">Fall</option>
+            <option value="Spring">Spring</option>
+            <option value="Summer">Summer</option>
+          </select>
+          <input type="submit">
+        </form>
+      </div>
+    </div>
+  </main>
+  <!----put the <script> into index.ts file -->
+  <script src="../bin/index.js"></script>
+</body>
+
+</html>

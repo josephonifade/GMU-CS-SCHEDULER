@@ -1,3 +1,3 @@
-console.log("Hello world!!! :)");
+import { initializeUI } from './ui/main'
 
-$("#example").text("Hello from the ts file!!. You can edit stuff here!!");
+initializeUI()
