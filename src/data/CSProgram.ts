@@ -1,21 +1,21 @@
-import {CourseID} from "./CourseID";
+import { CourseID } from "./CourseID";
 
 class CSProgram {
-    constructor(readonly categories: Category[]) {}
+    constructor(readonly categories: Category[]) { }
 }
 
-class Category {
-    constructor(readonly title: string, readonly requirements: Requirement[]) {}
+export class Category {
+    constructor(readonly title: string, readonly requirements: Requirement[]) { }
 }
 
 class Requirement {
-    constructor(readonly count: number, readonly options: RequirementOption[]) {}
+    constructor(readonly count: number, readonly options: RequirementOption[]) { }
 }
 
-export interface RequirementOption {}
+export interface RequirementOption { }
 
 class OptionList implements RequirementOption {
-    constructor(readonly count: number, readonly options: RequirementOption[]) {}
+    constructor(readonly count: number, readonly options: RequirementOption[]) { }
 }
 
 interface RuleOption extends RequirementOption {

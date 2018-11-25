@@ -15,7 +15,6 @@ function onTabClick(tab: HTMLDivElement | null, button: HTMLButtonElement, color
 
   tabLinks.forEach(function (button) {
     button.style.backgroundColor = ""
-
   })
 
   if (tab !== null) {
