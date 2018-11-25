@@ -2,19 +2,15 @@
 
 # Readme for developers
 
-# Ignore the rest of this stuff and run these
-- npm install -g typescript
-- npm install -g tslint
-- npm install -g jest
-- npm install -g ts-jest
 
-# To compile the code just run `tsc`
-
-
-
-
-
-
+### To compile 
+    npm run build
+### To watch changes in code 
+    npm run watch
+### To do a production build 
+    npm run prod
+### To run the tests 
+    npm run test
 
 
 ## General instructions
