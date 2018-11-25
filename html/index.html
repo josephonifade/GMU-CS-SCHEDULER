@@ -28,10 +28,13 @@
     <p>Generating your Schedule</p>
     </div>
 
-    <button class="tablink" onclick="openCity('CurrentCatalog', this, 'red')" id="defaultOpen">Current Catalog</button>
-    <button class="tablink" onclick="openCity('Save', this, 'purple')">Save</button>
-    <button class="tablink" onclick="openCity('Export', this, 'blue')">Export</button>
+    <button class="tablink" onclick="openCity('CurrentCatalog', this, 'orange')" id="defaultOpen">Current Catalog</button>
+    <button class="tablink" onclick="openCity('Save', this, 'orange')">Save</button>
+    <button class="tablink" onclick="openCity('Export', this, 'orange')">Export</button>
     <button class="tablink" onclick="openCity('GenerateSchedule', this, 'orange')">Generate Schedule</button>
+
+    <center><input type="text" name="search" placeholder="Enter Class Information Here ..."></center>
+    
 
     <!----put the <script> into index.ts file -->
     <script>
@@ -52,7 +55,7 @@
             elmnt.style.backgroundColor = color;
 
         }
-        // Get the element with id="defaultOpen" and click on it
+        // Get the element with id="defaultOpen"
         document.getElementById("defaultOpen").click();
     </script>
     <script src="../bin/index.js"></script>
