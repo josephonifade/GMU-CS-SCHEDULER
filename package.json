@@ -1,0 +1,32 @@
+{
+  "name": "gmu-cs-scheduler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "build": "webpack --mode development",
+    "watch": "webpack --watch --mode development",
+    "prod": "webpack",
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^23.3.9",
+    "@types/jquery": "^3.3.22",
+    "@types/node": "^10.12.10",
+    "husky": "^1.1.2",
+    "jest": "^23.6.0",
+    "npm": "^6.4.1",
+    "prettier": "1.14.3",
+    "rimraf": "^2.6.2",
+    "ts-jest": "^23.10.4",
+    "ts-loader": "^5.3.0",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1ß.15.0",
+    "typescript": "^3.1.6",
+    "webpack": "^4.26.0",
+    "webpack-cli": "^3.1.2"
+  },
+  "dependencies": {}
+}
