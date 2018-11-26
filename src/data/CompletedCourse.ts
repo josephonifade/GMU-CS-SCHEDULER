@@ -26,6 +26,7 @@ export class CompletedCourse {
 
     /**
      * Serializes a Completed Course
+     * Format: [courseID:4.0]
      */
     public serialize() : string {
         let result = "[";
