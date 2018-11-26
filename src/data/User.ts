@@ -108,6 +108,8 @@ export class User {
         let completedCoursesFromFile = []
         // Get all the completed courses
         while(fileContents.indexOf('[') != -1) {
+
+            // TODO: Should probably delegate this to a helper function in CompletedCourse called deserialize
             let currCourseParse = fileContents.substring(fileContents.indexOf('[')+1, fileContents.indexOf(']'))
             let currCourseID = currCourseParse.substring(0, currCourseParse.indexOf(":"));
             currCourseParse = currCourseParse.substring(currCourseParse.indexOf(':')+1);
