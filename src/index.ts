@@ -1,6 +1,7 @@
 
 import { initializeUI } from './ui/main'
 
+/*
 interface Semester {
   year: number
   courses: object[]
@@ -25,5 +26,5 @@ addEventListener('semester-added', (event) => {
 dispatchEvent(new CustomEvent('semester-added', {
   detail: { year: 1201 }
 }))
-
+*/
 initializeUI()

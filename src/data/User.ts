@@ -119,9 +119,6 @@ export class User {
         }
         
         let user = new User(+semestersRemaining, tempUser.getYearFromValue(year), completedCoursesFromFile)
-        //this.coursesTaken = completedCoursesFromFile;
-        //this.creditYear = this.getYearFromValue(year);
-        //this.semestersRemaining = +semestersRemaining;
 
         return user;
     }
