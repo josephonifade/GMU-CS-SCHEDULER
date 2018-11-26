@@ -67,13 +67,13 @@ export class User {
      * Serializes all the user information
      * FORMAT: SemestersRemaining:year{course1...courseN}
      */
-    private serialize(): string {
+    public serialize(): string {
         let result = "";
         result += this.semestersRemaining + ":" + this.year +"{"
         for (let course of this.coursesTaken) {
             result += course.serialize();
         }
-        return result;
+        return result+"}";
     }
 
     /**

@@ -1,7 +1,8 @@
 import {User, Year} from "../../data/User";
 import {Grade} from "../../data/Grade";
+import {CompletedCourse} from "../../data/CompletedCourse";
 
-let temp = new User(0, Year.Freshman, []);
+let temp = new User(4, Year.Freshman, []);
 
 test("Test if a user can graduate without taking classes", () => {
    expect(temp.checkCanGraduate()).toBeFalsy();
@@ -41,4 +42,15 @@ test("Test User get a grade from a value D", () => {
 
 test("Test User get a grade from a value F", () => {
    expect(temp.getGradeFromValue(0)).toEqual(Grade.F);
+});
+
+test("Test the serialization of the object is working as intended", () => {
+   let tempCourses = [];
+   tempCourses.push(CompletedCourse.fromCourseName("CS 321", Grade.A));
+   tempCourses.push(CompletedCourse.fromCourseName("CS 321", Grade.B));
+   tempCourses.push(CompletedCourse.fromCourseName("CS 321", Grade.C));
+   let tempUser = new User(4, Year.Freshman, tempCourses);
+   let serializedUser = tempUser.serialize();
+   let expectedAnswer = "4:Freshman{[CS 321:4][CS 321:3][CS 321:2]}"
+   expect(expectedAnswer).toEqual(serializedUser);
 });
