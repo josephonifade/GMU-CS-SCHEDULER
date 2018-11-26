@@ -96,9 +96,10 @@ export class User {
     /**
      * Load data from a .txt file
      */
-    public loadFile(): boolean {
+    public static loadFile(fileContents : string): User {
+
+        let tempUser = new User(6, Year.Freshman, []);
         // TODO: Make this come from a file
-        let fileContents = "X:X{[abc:bcd][abc:bcd]}";
         let semestersRemaining = fileContents.substring(0, fileContents.indexOf(':'));
         fileContents = fileContents.substring(fileContents.indexOf(':')+1);
         let year = fileContents.substring(0, fileContents.indexOf(':'));
@@ -111,15 +112,18 @@ export class User {
             let currCourseID = currCourseParse.substring(0, currCourseParse.indexOf(":"));
             let currCourseGrade = +currCourseParse.substring(currCourseParse.indexOf(':')+1);
             
-            let currCompletedCourse = CompletedCourse.fromCourseName(currCourseID, this.getGradeFromValue(currCourseGrade));
+            let currCompletedCourse = CompletedCourse.fromCourseName(currCourseID, tempUser.getGradeFromValue(currCourseGrade));
             completedCoursesFromFile.push(currCompletedCourse);
+            // start from the next 
+            fileContents = fileContents.substring(fileContents.indexOf(']')+1);
         }
+        
+        let user = new User(+semestersRemaining, tempUser.getYearFromValue(year), completedCoursesFromFile)
+        //this.coursesTaken = completedCoursesFromFile;
+        //this.creditYear = this.getYearFromValue(year);
+        //this.semestersRemaining = +semestersRemaining;
 
-        this.coursesTaken = completedCoursesFromFile;
-        this.creditYear = this.getYearFromValue(year);
-        this.semestersRemaining = +semestersRemaining;
-
-        return true;
+        return user;
     }
     /**
      * Get a Year enum from it's string value 

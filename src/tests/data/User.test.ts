@@ -54,3 +54,12 @@ test("Test the serialization of the object is working as intended", () => {
    let expectedAnswer = "4:Freshman{[CS 321:4][CS 321:3][CS 321:2]}"
    expect(expectedAnswer).toEqual(serializedUser);
 });
+
+test("Test the de-serialization of the object is working as intended", () => {
+   let serializedUserString = "4:Freshman{[CS 321:4][CS 321:3][CS 321:2]}"
+   let serializedUserObject = User.loadFile(serializedUserString);
+   expect(serializedUserObject.semestersRemaining).toEqual(4);
+   expect(serializedUserObject.creditYear).toEqual(Year.Freshman);
+   expect(serializedUserObject.coursesTaken.length).toEqual(3);
+   // TODO: Check the contents of the actual loaded file itself
+});
