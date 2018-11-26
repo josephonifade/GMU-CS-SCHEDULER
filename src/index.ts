@@ -1,6 +1,8 @@
 
 import { initializeUI } from './ui/main'
+import { User, Year } from './data/User';
 
+let user = new User(8, Year.Freshman, []);
 /*
 interface Semester {
   year: number

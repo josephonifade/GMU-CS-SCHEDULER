@@ -8,10 +8,12 @@ import {Grade} from "./Grade";
 export class CompletedCourse {
     public readonly courseID: CourseID;
     public grade: Grade;
+    public semester: number;
 
-    constructor(courseID: CourseID, grade: Grade) {
+    constructor(courseID: CourseID, grade: Grade, semester: number) {
         this.courseID = courseID;
         this.grade = grade;
+        this.semester = semester;
     }
 
     /**
@@ -20,17 +22,17 @@ export class CompletedCourse {
      * @param courseName
      * @param grade
      */
-    public static fromCourseName(courseName: string, grade: Grade): CompletedCourse {
-        return new CompletedCourse(CourseID.fromCourseName(courseName), grade);
+    public static fromCourseName(courseName: string, grade: Grade, semester: number): CompletedCourse {
+        return new CompletedCourse(CourseID.fromCourseName(courseName), grade, semester);
     }
 
     /**
      * Serializes a Completed Course
-     * Format: [courseID:4.0]
+     * Format: [courseID:4.0:0]
      */
     public serialize() : string {
         let result = "[";
-        result += this.courseID + ":" + this.grade.valueOf();
+        result += this.courseID + ":" + this.grade.valueOf() + ":"+this.semester;
         return result + "]";
     }
 }

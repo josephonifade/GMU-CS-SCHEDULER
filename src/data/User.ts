@@ -110,9 +110,14 @@ export class User {
         while(fileContents.indexOf('[') != -1) {
             let currCourseParse = fileContents.substring(fileContents.indexOf('[')+1, fileContents.indexOf(']'))
             let currCourseID = currCourseParse.substring(0, currCourseParse.indexOf(":"));
-            let currCourseGrade = +currCourseParse.substring(currCourseParse.indexOf(':')+1);
+            currCourseParse = currCourseParse.substring(currCourseParse.indexOf(':')+1);
+
+            let currCourseGrade = +currCourseParse.substring(0, currCourseParse.indexOf(':'));
+            currCourseParse = currCourseParse.substring(currCourseParse.indexOf(':')+1);
             
-            let currCompletedCourse = CompletedCourse.fromCourseName(currCourseID, tempUser.getGradeFromValue(currCourseGrade));
+            let semester = +currCourseParse.substring(currCourseParse.indexOf(':')+1, currCourseParse.indexOf(']'));
+            
+            let currCompletedCourse = CompletedCourse.fromCourseName(currCourseID, tempUser.getGradeFromValue(currCourseGrade), semester);
             completedCoursesFromFile.push(currCompletedCourse);
             // start from the next 
             fileContents = fileContents.substring(fileContents.indexOf(']')+1);
