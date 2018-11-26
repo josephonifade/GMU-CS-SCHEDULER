@@ -124,7 +124,7 @@ export class User {
     /**
      * Get a Year enum from it's string value 
      */
-    private getYearFromValue(value : string) : Year {
+    public getYearFromValue(value : string) : Year {
         if(value == "Freshman")
             return Year.Freshman;
         if(value == "Sophomore")
@@ -137,7 +137,7 @@ export class User {
     /**
      * Converts a grade value to an enumeration
      */
-    private getGradeFromValue(value : number) : Grade {
+    public getGradeFromValue(value : number) : Grade {
         if(value == 4.0)
             return Grade.Ap;
         if(value == 3.67)

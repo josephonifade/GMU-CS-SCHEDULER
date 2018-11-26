@@ -19,3 +19,9 @@ test("Test whether serialization will work for a given Completed Course 1", () =
     let serialized = cCourse.serialize();
     expect("[CS 321:2.33]").toEqual(serialized);
  });
+
+ test("Test whether serialization will work for a given Completed Course 4", () => {
+    let cCourse = CompletedCourse.fromCourseName("CS 321", Grade.F);
+    let serialized = cCourse.serialize();
+    expect("[CS 321:0]").toEqual(serialized);
+ });
