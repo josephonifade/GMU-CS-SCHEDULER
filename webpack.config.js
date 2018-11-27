@@ -5,17 +5,23 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.ts?$/,
+        test: /\.tsx?$/,
         use: 'ts-loader',
         exclude: /node_modules/
       }
     ]
   },
   resolve: {
-    extensions: [ '.ts', '.js' ]
+    extensions: [ '.tsx', '.ts', '.js' ]
   },
   output: {
-    filename: 'index.js',
-    path: path.resolve(__dirname, 'bin')
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist')
+  },
+  node: {
+    console: true,
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty'
   }
 };

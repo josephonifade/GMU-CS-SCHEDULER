@@ -7,7 +7,7 @@ import {CREDIT_RULE, TOTAL_CREDIT_REQUIREMENT} from "../../data/Rule";
 import {User, Year} from "../../data/User";
 
 const fakeCourseID: CourseID = new CourseID("Fake", 101);
-const fakeCatalog: Map<CourseID, Course> = new Map<CourseID, Course>();
+const fakeCatalog: Map<string, Course> = new Map<string, Course>();
 const fakeCompletedCourse: CompletedCourse = new CompletedCourse(fakeCourseID, Grade.Bm, 0);
 const fakeUser: User = new User(4, Year.Sophomore, [fakeCompletedCourse]);
 
@@ -27,7 +27,7 @@ test("CreditRule checkRule fails if we have less than the required credits", () 
         Grade.C,
         Prereq.NONE
     );
-    fakeCatalog.set(fakeCourseID, fakeCourse);
+    fakeCatalog.set(JSON.stringify(fakeCourseID), fakeCourse);
     expect(CREDIT_RULE.checkRule(fakeUser, fakeCatalog)).toBeFalsy();
 });
 
@@ -39,7 +39,7 @@ test("CreditRule checkRule succeeds if we have exactly the required credits", ()
         Grade.C,
         Prereq.NONE
     );
-    fakeCatalog.set(fakeCourseID, fakeCourse);
+    fakeCatalog.set(JSON.stringify(fakeCourseID), fakeCourse);
     expect(CREDIT_RULE.checkRule(fakeUser, fakeCatalog)).toBeTruthy();
 });
 
@@ -51,6 +51,6 @@ test("CreditRule checkRule succeeds if we have more than the required credits", 
         Grade.C,
         Prereq.NONE
     );
-    fakeCatalog.set(fakeCourseID, fakeCourse);
+    fakeCatalog.set(JSON.stringify(fakeCourseID), fakeCourse);
     expect(CREDIT_RULE.checkRule(fakeUser, fakeCatalog)).toBeTruthy();
 });

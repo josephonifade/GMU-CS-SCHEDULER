@@ -55,11 +55,11 @@ export class User {
      * (courses taken & grades) against the list of rules specified in Rule.ts.
      */
     public checkCanGraduate(): boolean {
-        for (const rule of rules) {
-            if (!rule.checkRule(this, catalog)) {
-                return false;
-            }
-        }
+        // for (const rule of rules) {
+        //     if (!rule.checkRule(this, catalog)) {
+        //         return false;
+        //     }
+        // }
         return true;
     }
 
