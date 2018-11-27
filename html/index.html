@@ -9,31 +9,23 @@
 
 
 <body>
+   <!-- <div class="heroimage"></div> -->
+    
 
   <header>
     <div id="CurrentCatalog" class="tabcontent">
-      <h1>Current Catalog</h1>
-      <p>You are viewing George Mason University Catalog Year 2018-2019 for Computer Science Major</p>
-    </div>
-
-    <div id="Save" class="tabcontent">
-      <h1>Save</h1>
-      <p>Saving your current progress.</p>
-    </div>
-
-    <div id="Export" class="tabcontent">
-      <h1>Export</h1>
-      <p>Exporting your information to a text file.</p>
+        <div id="gmu">
+            <h1>George Mason University</h1>
+        </div>
     </div>
 
     <div id="GenerateSchedule" class="tabcontent">
-      <h1>Generate Schedule</h1>
-      <p>Generating your Schedule</p>
+        <div id="gmu">
+            <h1>George Mason University</h1>
+        </div>
     </div>
 
     <button class="tablink" data-tab-name="CurrentCatalog" data-color="red" id="defaultOpen">Current Catalog</button>
-    <button class="tablink" data-tab-name="Save" data-color="purple"> Save</button>
-    <button class="tablink" data-tab-name="Export" data-color="blue"> Export</button>
     <button class="tablink" data-tab-name="GenerateSchedule" data-color="orange"> Generate Schedule</button>
   </header>
 
@@ -41,15 +33,18 @@
     <div>
       <div id="CurrentCatalog-content" class="main-content" style="display: none;">
         <h1>Current Catalog</h1>
-        <button onClick="{{user.serializeTest()}}"> test </button>
         <p>Current Catalog</p>
       </div>
 
       <div id="GenerateSchedule-content" class="main-content" style="display: none;">
         <h1>Generate Schedule</h1>
-        <p>Generating your Schedule</p>
+        <!--added the two save and export button E.L-->
+            <button class ="button" onclick = "alert('we are generating your schedule')">Export</button>
+            <button class ="button" onclick = "alert('saving your progress')">Save</button>
+            <br>
         <h2>Add a semester</h2>
         <p>Please select the year:</p>
+        <!--<button type ="button" onclick = "alert('we are generating your schedule')">Export</button> -->
 
         <form id="semesterForm">
           <select name="year">
@@ -78,7 +73,6 @@
       </div>
     </div>
   </main>
-  <!----put the <script> into index.ts file -->
   <script src="../bin/index.js"></script>
 </body>
 

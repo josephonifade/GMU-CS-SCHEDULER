@@ -1,7 +1,28 @@
 body {font-family: "Lato", sans-serif;}
 
+/*******************************************************************************************/
+.button {
+    background-color: #4CAF50;
+    color: white;
+    float: center;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 15%;
+    border-radius: 12px;
+}
 
-/*TABLINK edit format */
+/* edit the color of the hover over mouse */
+.button:hover {
+    background-color: #777;
+}
+/*******************************************************************************************/
+
+
+/*******************************************************************************************/
+/*TABLINK edit format and color schem*/
 .tablink {
     background-color: #555;
     color: white;
@@ -10,27 +31,30 @@ body {font-family: "Lato", sans-serif;}
     outline: none;
     cursor: pointer;
     padding: 14px 16px;
-    font-size: 17px;
-    width: 25%;
+    font-size: 20px;
+    width: 50%;
 }
-
 /* edit the color of the hover over mouse */
 .tablink:hover {
 	/*background-color: #777; */
-    background-color: #777;
+    background-color: rgb(204, 200, 200);
 }
+/*******************************************************************************************/
+
+
 
 /* Style the tab content */
 .tabcontent {
-    color: white;
+    color: rgb(0, 0, 0);
     display: none;
-    padding: 50px;
+    padding: 10px;
     text-align: center;
     -webkit-animation: fadeEffect 1s;
-    animation: fadeEffect 1s;
+    animation: fadeEffect 1s; 
 }
 
-/* Fade in tabs */
+/* Fade in tabs from w3school */
+
 @-webkit-keyframes fadeEffect {
     from {opacity: 0;}
     to {opacity: 1;}
@@ -41,11 +65,26 @@ body {font-family: "Lato", sans-serif;}
     to {opacity: 1;}
 }
 
-/*gets id by tag, and changes the background color*/
-#CurrentCatalog {background-color:Green;}
-#Save {background-color:Green;}
-#Export {background-color:Green;}
-#GenerateSchedule {background-color:Green;}
+
+/*gets id by tag, and changes the background color */
+#CurrentCatalog {
+    /*background-color:Green;*/
+    background-image: url("https://farm5.staticflickr.com/4915/32192640548_52c57fad74_k.jpg " );
+    background-position-x: 25%;
+    background-position-y: 25%;
+    align-content: center;
+    height: 50%;
+    width: auto;
+}
+#GenerateSchedule {
+    /*background-color:Green;*/
+    background-image: url("https://farm5.staticflickr.com/4915/32192640548_52c57fad74_k.jpg " );
+    background-position-x: 25%;
+    background-position-y: 25%;
+    align-content: center;
+    height: 50%;
+    width: auto;
+} 
 
 body{
     text-align: center;
@@ -68,4 +107,25 @@ input[type=text] {
 
 input[type=text]:focus {
     width: 100%;
+}
+
+
+/*
+body, html {
+    height: 100%;
+    margin: 0;
+}
+.heroimage {
+  background-image: url("https://farm5.staticflickr.com/4915/32192640548_52c57fad74_k.jpg " );
+  height: 50%;
+  background-position: center;
+  background-repeat: repeat;
+ 
+  position: relative;
+}
+*/
+
+#gmu{
+  font-size: 30px;  
+  font-style: oblique;
 }
