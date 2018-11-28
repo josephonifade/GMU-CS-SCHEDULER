@@ -55,11 +55,11 @@ export class User {
      * (courses taken & grades) against the list of rules specified in Rule.ts.
      */
     public checkCanGraduate(): boolean {
-        for (const rule of rules) {
-            if (!rule.checkRule(this, catalog)) {
-                return false;
-            }
-        }
+        // for (const rule of rules) {
+        //     if (!rule.checkRule(this, catalog)) {
+        //         return false;
+        //     }
+        // }
         return true;
     }
 
@@ -108,20 +108,24 @@ export class User {
         let completedCoursesFromFile = []
         // Get all the completed courses
         while(fileContents.indexOf('[') != -1) {
+
+            // TODO: Should probably delegate this to a helper function in CompletedCourse called deserialize
             let currCourseParse = fileContents.substring(fileContents.indexOf('[')+1, fileContents.indexOf(']'))
             let currCourseID = currCourseParse.substring(0, currCourseParse.indexOf(":"));
-            let currCourseGrade = +currCourseParse.substring(currCourseParse.indexOf(':')+1);
+            currCourseParse = currCourseParse.substring(currCourseParse.indexOf(':')+1);
+
+            let currCourseGrade = +currCourseParse.substring(0, currCourseParse.indexOf(':'));
+            currCourseParse = currCourseParse.substring(currCourseParse.indexOf(':')+1);
             
-            let currCompletedCourse = CompletedCourse.fromCourseName(currCourseID, tempUser.getGradeFromValue(currCourseGrade));
+            let semester = +currCourseParse.substring(currCourseParse.indexOf(':')+1, currCourseParse.indexOf(']'));
+            
+            let currCompletedCourse = CompletedCourse.fromCourseName(currCourseID, tempUser.getGradeFromValue(currCourseGrade), semester);
             completedCoursesFromFile.push(currCompletedCourse);
             // start from the next 
             fileContents = fileContents.substring(fileContents.indexOf(']')+1);
         }
         
         let user = new User(+semestersRemaining, tempUser.getYearFromValue(year), completedCoursesFromFile)
-        //this.coursesTaken = completedCoursesFromFile;
-        //this.creditYear = this.getYearFromValue(year);
-        //this.semestersRemaining = +semestersRemaining;
 
         return user;
     }

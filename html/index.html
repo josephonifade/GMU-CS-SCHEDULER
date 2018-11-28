@@ -4,20 +4,17 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="StyleSheet.css" rel="stylesheet" type="text/css">
-  </link>
 </head>
 
 
-<body background = "https://farm5.staticflickr.com/4910/31127726167_2019370019_z.jpg">
-   <!-- <div class="heroimage"></div> -->
-    
-
-  <header>
-    <div id="CurrentCatalog" class="tabcontent">
-        <div id="gmu">
-            <h1>George Mason University</h1>
+<body>
+    <!--<div id="background"></div> <body background = "https://xtentertainment.com/wp-content/uploads/2015/03/White-State_Website-Background.jpg"> -->
+    <header>
+        <div id="CurrentCatalog" class="tabcontent">
+            <div id="gmu">
+                <h1>George Mason University</h1>
+            </div>
         </div>
-    </div>
 
     <div id="GenerateSchedule" class="tabcontent">
         <div id="gmu">
@@ -32,20 +29,38 @@
   <main>
     <div>
       <div id="CurrentCatalog-content" class="main-content" style="display: none;">
-        <h1>Current Catalog</h1>
-        <p>Current Catalog</p>
+            <h1>Current Mason Catalog</h1>
+            <form>
+              <input type="text" name="search" placeholder="Search class here ...">
+            </form>
+            <br>
+            <center>
+                <button class="button" onclick ="alert('saving catalog to user drive')">Save Catalog</button>
+                <br><br>
+                <image src='https://farm5.staticflickr.com/4893/31142136937_eeae20c9fa_z.jpg'></image>
+                <br>
+                <image src='https://farm5.staticflickr.com/4816/46030964482_9da7b96029_z.jpg'></image>
+                <br>
+                <image src='https://farm5.staticflickr.com/4831/31142136847_7da026520d_z.jpg'></image>
+            </center>
+         
+        <br>
       </div>
 
       <div id="GenerateSchedule-content" class="main-content" style="display: none;">
-        <h1>Generate Schedule</h1>
-        <!--added the two save and export button E.L-->
+        <center>
+            <h1>Generate Schedule</h1>
+            <!--button for import and export -->
             <button class ="button" onclick = "alert('we are generating your schedule')">Export</button>
             <button class ="button" onclick = "alert('we are importing your schedule')">Import</button>
-            <br>
+            <button class ="button" onclick = "window.open('https://calendar.google.com/calendar/r','_blank')">Google Calendar</button>
+        </center>
+        <br>
         <h2>Add a semester</h2>
         <p>Please select the year:</p>
         <!--<button type ="button" onclick = "alert('we are generating your schedule')">Export</button> -->
 
+        <!-- drop down menu for the year that the user can select from -->
         <form id="semesterForm">
           <select name="year">
             <option value="2018">2018</option>
@@ -63,22 +78,23 @@
           </select>
           <br><br>
 
-          <select name="semester">
+            <select name="semester">
             <option value="Fall">Fall</option>
             <option value="Spring">Spring</option>
             <option value="Summer">Summer</option>
-          </select>
+            </select>
           <input type="submit">
         </form>
       </div>
     </div>
   </main>
+  
+  <!-- Dependencies -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="../dist/bundle.js"></script>
   <script src="../bin/index.js"></script>
 </body>
 
 </html>
-
-
-
 
 
