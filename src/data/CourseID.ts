@@ -25,7 +25,7 @@ export class CourseID implements RequirementOption {
    * (e.g. "CS 321")
    */
   public static fromCourseName(courseName: string): CourseID {
-    const regex = /\d/g
+    const regex = /\s/g
     const parts: string[] = courseName.trim().split(regex);
     const department: string = parts[0];
     const courseNumber: number = Number(parts[1]);

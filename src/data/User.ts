@@ -107,7 +107,7 @@ export class User {
         // TODO: Make this come from a file
         let semestersRemaining = fileContents.substring(0, fileContents.indexOf(':'));
         fileContents = fileContents.substring(fileContents.indexOf(':')+1);
-        let year = fileContents.substring(0, fileContents.indexOf(':'));
+        let year = fileContents.substring(0, fileContents.indexOf('{'));
         fileContents = fileContents.substring(fileContents.indexOf(':')+1);
 
         let completedCoursesFromFile = []
@@ -130,6 +130,7 @@ export class User {
             fileContents = fileContents.substring(fileContents.indexOf(']')+1);
         }
         
+        console.log('year', year, 'haha');
         let user = new User(+semestersRemaining, tempUser.getYearFromValue(year), tempUser.getYearFromValue(year), completedCoursesFromFile)
 
         return user;
