@@ -41,15 +41,27 @@ export class Course {
   }
 
   public getFailingPrerequisitesNoGrade(...coursesTaken: CourseID[]): Prereq.Prerequisite[] {
-    console.log('course.getFailingprereq ng');
     return this.getFailingPrerequisites(
       ...coursesTaken.map((courseID) => {
-        return new CompletedCourse(new CourseID(courseID.department, courseID.courseNumber), Grade.A);
+        return new CompletedCourse(new CourseID(courseID.department, courseID.courseNumber), Grade.A, 1);
       })
     );
   }
 
   public checkPassed(grade: Grade): boolean {
     return grade >= this.minGrade;
+  }
+
+      /**
+     * Serializes the current course
+     */
+    public serialize(): string {
+      let result = "[";
+      result += this.id + ":";
+      result += this.credits + ":";
+      result += "none" + ":"; // TODO: Design a way to serialize Pre Reqs
+      result += this.minGrade.valueOf() + ":";
+      result += this.description + "]";
+      return result;
   }
 }
