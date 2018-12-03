@@ -49,7 +49,7 @@ test("Test the serialization of the object is working as intended", () => {
    tempCourses.push(CompletedCourse.fromCourseName("CS 321", Grade.A, 1));
    tempCourses.push(CompletedCourse.fromCourseName("CS 321", Grade.B, 2));
    tempCourses.push(CompletedCourse.fromCourseName("CS 321", Grade.C, 3));
-   let tempUser = new User(4, Year.Freshman, tempCourses);
+   let tempUser = new User(4, Year.Freshman, Year.Freshman, tempCourses);
    let serializedUser = tempUser.serialize();
    let expectedAnswer = "4:Freshman{[CS 321:4:1][CS 321:3:2][CS 321:2:3]}"
    expect(expectedAnswer).toEqual(serializedUser);
