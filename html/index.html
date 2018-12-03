@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>Hello World</title>
-    </head>
-    <body>
-        <div id="example"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
 
-        
-        <!-- Dependencies -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <!-- Main -->
-        <script src="../bin/index.js"></script>
-    </body>
+    <style>
+      a.disabled {
+        pointer-events: none !important;
+        cursor: default;
+        color: Gray;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Dependencies -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Main -->
+    <script src="../dist/bundle.js"></script>
+  </body>
 </html>

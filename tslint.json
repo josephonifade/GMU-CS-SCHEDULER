@@ -1,9 +1,7 @@
 {
     "defaultSeverity": "error",
     "extends": [
-        "tslint:recommended",
-        "tslint-react",
-        "tslint-config-prettier"
+        "tslint:recommended"
     ],
     "jsRules": {},
     "rules": {
@@ -36,7 +34,10 @@
         "no-namespace": false,
         "no-console": false,
         "jsx-wrap-multiline": false,
-        "no-empty-interface": false
+        "no-empty-interface": false,
+        "quotemark": [true, "single"],
+        "trailing-comma": [false],
+        "forin": false
     },
     "rulesDirectory": []
 }
