@@ -34,7 +34,7 @@ export class OptionList implements RequirementOption {
   }
 }
 
-interface RuleOption extends RequirementOption {
+export interface RuleOption extends RequirementOption {
   match(courseID: CourseID): boolean;
 }
 

@@ -185,12 +185,11 @@ export namespace Prereq {
       if(!this.courseID.equals){
         this.courseID = new CourseID(this.courseID.department, this.courseID.courseNumber);
       }
-      // for (const course of coursesTaken) {
-      //   if (this.courseID.equals(course.courseID) && course.grade >= this.minGrade) {
-      //     return [];
-      //   }
-      // }
-      coursesTaken;
+      for (const course of coursesTaken) {
+        if (this.courseID.equals(course.courseID) && course.grade >= this.minGrade) {
+          return [];
+        }
+      }
       return [this];
     }
 
